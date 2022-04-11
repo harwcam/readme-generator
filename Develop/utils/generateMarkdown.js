@@ -32,10 +32,10 @@ function renderLicenseLink(data) {
     }
    var url = `https://choosealicense.com/licenses/${licenseDict[data.licenseChoice]}/`
   return `
-  ## License
+## License
 
-  This project is covered under ${licenseDict[data.licenseChoice]}.
-  More information can be found here ${url} `
+This project is covered under ${licenseDict[data.licenseChoice]}.
+More information can be found here ${url} `
   } else {
     return ''
   }
@@ -55,7 +55,7 @@ module.exports = promptData => {
   - [Installation](#installation)
   - [Contributions](#contributions)
   - [Testing](#testing)
-  - [Questions?](#Questions?)
+  - [Questions?](#questions?)
   
 ## Description
 
@@ -78,6 +78,7 @@ ${promptData.contribution}
 ${promptData.test}
 
 ${renderLicenseLink(promptData)}
+
 ## Questions?
 
 My github profile can be found [here](https://github.com/${promptData.githubName}).

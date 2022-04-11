@@ -1,7 +1,7 @@
 
   # run-buddy
 
-  [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
   ## Table of Contents
 
@@ -14,29 +14,30 @@
   
 ## Description
 
-This project is a website for a small gym.
+This is a website made for a small gym.
 
 ## Usage
 
-There is no functionality, you can only view the website.
+You can only look at the project. Open it in your preferred browser.
 
 ## Installation
 
-You can open this in your browser.
+You can clone the git repo.
 
 ## Contributions
 
-Submit a pull request.
+Create a pull request.
 
 ## Testing
 
-No tests were performed.
+No tests were executed.
 
 
-  ## License
+## License
 
-  This project is covered under mpl-2.0.
-  More information can be found here https://choosealicense.com/licenses/mpl-2.0/ 
+This project is covered under lgpl-3.0.
+More information can be found here https://choosealicense.com/licenses/lgpl-3.0/ 
+
 ## Questions?
 
 My github profile can be found [here](https://github.com/harwcam).
