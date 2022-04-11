@@ -1,12 +1,41 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { reject } = require('lodash');
 const { type } = require('os');
-const {generateMarkdown} = require('./utils/generateMarkdown.js')
+const { listenerCount } = require('process');
+const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
-const questions = () => {
+const promptProject = projectData => {
+
     return inquirer.prompt([ 
+        {
+            type: 'input',
+            name: 'githubName',
+            message: 'What is the name of your Github Account? (required)',
+            validate: githubNameInput => {
+                if (githubNameInput) {
+                    return true
+                    } else {
+                        console.log('Please enter the name of your github account.')
+                        return false
+                    }
+                }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is your email address? (required)',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true
+                    } else {
+                        console.log('Please enter your email address.')
+                        return false
+                    }
+                }
+        },
         {
         type: 'input',
         name: 'projectName',
@@ -92,19 +121,52 @@ const questions = () => {
             
         },
         {
-            type: 'checkbox',
-            name: 'licenseChoices',
-            message: 'Which license best fits your project? Select only one. For more information check out https://choosealicense.com/licenses/',
-            choices: ['GNU AGPLv3','GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License', 'Unlicense']
+            type: 'list',
+            name: 'licenseChoice',
+            message: 'Which license best fits your project? For more information check out https://choosealicense.com/licenses/',
+            choices: ['GNU AGPLv3','GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License', 'Unlicense'],
+            when: ({licenseConfirm}) => {
+                if (licenseConfirm) {
+                    return true
+                } else {
+                    return false
+                }
+            }
         }
-    ] );
-};
+    ]).then(projectData => {
+        console.log(projectData)
+        return projectData 
+    });
+}
+    
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+const writeToFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/README.md', fileContent, err => {
+            if (err) {
+                reject(err)
+                return
+            } 
+            resolve({
+                ok: true,
+                message: 'README created!'
+            })
+        })
+    });
+};
 
 // TODO: Create a function to initialize app
-function init() {questions()}
+function init() {
+    promptProject()
+    .then(promptData => {
+        return generateMarkdown(promptData) 
+    })
+    .then(fileData => {
+        return writeToFile(fileData)})
+    .catch(err => {
+        console.log(err);
+    });
+}
 
-// Function call to initialize app
 init();
