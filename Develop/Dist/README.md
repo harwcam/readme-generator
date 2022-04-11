@@ -1,7 +1,7 @@
 
-  # run-buddy
+  # Readme.MD Generator
 
-  [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Table of Contents
 
@@ -10,35 +10,39 @@
   - [Installation](#installation)
   - [Contributions](#contributions)
   - [Testing](#testing)
-  - [Questions?](#Questions?)
+  - [Questions?](#questions?)
   
 ## Description
 
-This is a website made for a small gym.
+This project will create a readme for your project, based on some of your input!
 
 ## Usage
 
-You can only look at the project. Open it in your preferred browser.
+Run 'node.index' on the command line and answer the prompts. Then look in the 'Dist' folder for your Readme!
 
 ## Installation
 
-You can clone the git repo.
+You should clone the project, make sure you have node and the required dependencies installed, and run 'node index' on your command line in the required directory.
 
 ## Contributions
 
-Create a pull request.
+Submit a pull request
 
 ## Testing
 
-No tests were executed.
+Validation was implemented on user input. No blank values are allowed, so you don't have to worry about skipping a prompt.
 
 
 ## License
 
-This project is covered under lgpl-3.0.
-More information can be found here https://choosealicense.com/licenses/lgpl-3.0/ 
+This project is covered under mit.
+More information can be found here https://choosealicense.com/licenses/mit/ 
 
 ## Questions?
 
 My github profile can be found [here](https://github.com/harwcam).
 Contact me at harwcam@gmail.com.
+
+## Video Demo
+
+https://drive.google.com/file/d/158SrgyO_FMdw8nCV8g_8XwoLgMRzSZyT/view
